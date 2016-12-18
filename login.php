@@ -12,10 +12,10 @@
       <title>Doctor Mash - Find a Doctor</title>
     </head>
 
-    <body>
+    <body class="bg">
         <nav>
             <div class="nav-wrapper">
-              <a href="#" class="brand-logo">Doctor Mash</a>
+              <a href="index.php" class="brand-logo">Doctor Mash</a>
               <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="index.php">Home</a></li>
                 <li><a href="Register.php">Register</a></li>
@@ -23,6 +23,28 @@
             </div>
           </nav>
         <br>
+        <div align="center">
+         <div class="secondary-container" align="center">
+             <form method="POST" action="">
+                   <div class="row">
+                  <div class="input-field col s12">
+                    <input id="email" type="email" class="validate" name="email">
+                    <label for="email" data-error="wrong" data-success="right">Email</label>
+                  </div>
+                  <div class="row">
+                  <div class="input-field col s12">
+                    <input id="password" type="password" class="validate" name="pass">
+                    <label for="password">Password</label>
+                  </div>
+                  <div class="row">
+                  <div class="input-field col s12">
+                      <input type="submit" value="LogIn" id="login" name="login" class="btn waves-effect waves-brown waves-ripple ">
+                  </div>
+                </div>
+             </form>
+        </div>
+        </div>
+         </div>
         <footer class="page-footer">
           <div class="container">
             <div class="row">

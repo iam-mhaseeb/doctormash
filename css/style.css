@@ -19,3 +19,53 @@ and open the template in the editor.
 .chip{
     margin: 1%;
 }
+
+.bg{
+   background-image: url("../images/bg.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+.secondary-container{
+    background: rgba(38 ,38,38, 0.4);
+    color: white;
+    margin: 15%;
+    width: 30%;
+}
+/* label color */
+   .input-field label {
+     color: #ff8080;
+   }
+   /* label focus color */
+   .input-field input[type=text]:focus + label {
+     color: #ff8080 !important;;
+   }
+   /* label underline focus color */
+   .input-field input[type=text]:focus {
+     border-bottom: 1px solid #ff8080 !important;;
+     box-shadow: 0 1px 0 0 #ff8080 !important;;
+   }
+   /* valid color */
+   .input-field input[type=text].valid {
+     border-bottom: 1px solid #ff8080;
+     box-shadow: 0 1px 0 0 #ff8080;
+   }
+   /* invalid color */
+   .input-field input[type=text].invalid {
+     border-bottom: 1px solid #ff8080;
+     box-shadow: 0 1px 0 0 #ff8080;
+   }
+   /* icon prefix focus color */
+   .input-field .prefix.active {
+     color: #ff8080;
+   }
+   .btn{
+       background-color: #ff8080;
+   }
+   .btn:hover {
+       background-color: rgba(38 ,38,38, 0.4);
+   }
+ .waves-effect.waves-brown .waves-ripple {
+     /* The alpha value allows the text and background color
+     of the button to still show through. */
+      background-color: #ff8080;
+    }
