@@ -12,3 +12,10 @@ and open the template in the editor.
     margin-right: 5%;
     margin-left: 5%;
 }
+.main{
+    margin: 2%;
+   width: 100%;
+}
+.chip{
+    margin: 1%;
+}
