@@ -1,4 +1,5 @@
-  <!DOCTYPE html>
+<?php require 'conn.php';?>
+<!DOCTYPE html>
   <html>
     <head>
       <!--Import Google Icon Font-->
@@ -25,7 +26,7 @@
         <br>
         <div align="center">
          <div class="secondary-container" align="center">
-             <form method="POST" action="log.php">
+             <form method="POST" action="">
                    <div class="row">
                   <div class="input-field col s12">
                       <input id="email" type="email" class="validate" name="email" required="">
@@ -68,4 +69,31 @@
       <script type="text/javascript" src="js/js.js"></script>
     </body>
   </html>
+  
+<?php
+if(isset($_POST['login'])){
+$flag = false;
+$email = isset($_POST['email']) ? $_POST['email'] : '';
+$pass =  md5(isset( $_POST['pass']) ?  $_POST['pass'] : '');
+$sql = "select * from login where email = '$email'";
+$result = mysql_query($sql) or die("Table Not Found".mysql_error());
+while ($row=mysql_fetch_array($result)) {
+    if($email == $row['email'] && $pass == $row['password']){
+        $flag = true;
+        session_start();
+        $_SESSION["uid"] = $row['id'];
+        $_SESSION["account_type"] = $row['account_check'];
+        header('Location: home.php ');
+        
+    }
+}
+if($flag==false){?>
+    <script type="text/javascript">Materialize.toast('Username or Password is Wrong!', 4000) // 4000 is the duration of the toast</script>
+    <?php
+}
+}
+?>
+
+
+
 

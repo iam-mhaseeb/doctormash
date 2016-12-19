@@ -63,10 +63,13 @@ and open the template in the editor.
        color: #ff8080 !important;
    }
    .btn{
-       background-color: #ff8080;
+       background-color: #ff8080 !important;
    }
    .btn:hover {
-       background-color: rgba(38 ,38,38, 0.4);
+       background-color: rgba(38 ,38,38, 0.4) !important;
+   }
+   .btn:focus {
+       background-color: rgba(38 ,38,38, 0.4) !important;
    }
  .waves-effect.waves-brown .waves-ripple {
      /* The alpha value allows the text and background color
