@@ -23,45 +23,131 @@
             </div>
           </nav>
         <br>
-        <div align="center">
+        
+         <div align="center">
          <div class="secondary-container" align="center">
-             <form method="POST" action="">
+             <form method="POST" action="reg.php">
                    <div class="row">
                   <div class="input-field col s12">
-                    <input id="email" type="email" class="validate" name="email">
+                      <input id="email" type="email" class="validate" name="email" required="">
                     <label for="email" data-error="wrong" data-success="right">Email</label>
                   </div>
+                   </div>
                   <div class="row">
                   <div class="input-field col s12">
-                    <input id="password" type="password" class="validate" name="pass">
+                      <input id="password" type="password" class="validate" name="pass" required="">
                     <label for="password">Password</label>
                   </div>
-                   <div class="row">
+                  </div>
+                   <div class="row"> 
                   <div class="input-field col s12">
-                       <p>
-                        <input name="group1" type="radio" id="doc" />
-                        <label for="doc">Doctor</label>
-                      </p>
-                      <p>
-                        <input name="group1" type="radio" id="patient" />
-                        <label for="patient">Patient</label>
-                      </p>
+                    <p>
+                        <input name="group1" type="radio" id="doc" value="doc" />
+                    <label for="doc">Doctor</label>
+                  </p>
+                  <p>
+                      <input name="group1" type="radio" id="pat" value="pat" />
+                    <label for="pat">Patient</label>
+                     </p>
                   </div>
                    </div>
-                      <div id="doctor" class="row" hidden="">
+                 <div id="doctor" hidden="">
+                     <div class="row"> 
+                        <div class="input-field col s12">
+                            <input id="name" type="text"  name="name" required="">
+                            <label for="name">Name</label>
+                        </div>
+                      </div>
+                     <div class="row"> 
+                        <div class="input-field col s12">
+                            <input id="degree" type="text"  name="degree" required="">
+                            <label for="degree">Degree</label>
+                        </div>
+                      </div>
+                     <div class="row"> 
+                        <div class="input-field col s12">
+                            <input id="spcial" type="text"  name="special" required="">
+                            <label for="special">Specialization</label>
+                        </div>
+                      </div>
+                     <div class="row"> 
+                        <div class="input-field col s12">
+                            <input id="fee" type="number"  name="fee" required="">
+                            <label for="fee">Fee</label>
+                        </div>
+                      </div>
+                     <div class="row"> 
+                        <div class="input-field col s12">
+                            <input id="timefrom" type="time"  name="timefrom" required="">
+                            <label for="timefrom">Time From</label>
+                        </div>
+                      </div>
+                     <div class="row"> 
+                        <div class="input-field col s12">
+                            <input id="timeto" type="time"  name="timeto" required="">
+                            <label for="timeto">Time To</label>
+                        </div>
+                      </div>
+                     <div class="row"> 
+                        <div class="input-field col s12">
+                            <input id="phone" type="number"  name="phone" required="">
+                            <label for="phone">Phone#</label>
+                        </div>
+                      </div>
+                     <div class="row"> 
+                        <div class="input-field col s12">
+                            <input id="adress" type="text"  name="adress" required="">
+                            <label for="adress">Adress</label>
+                        </div>
+                      </div>
+                 </div>
+                  <div id="patient1" hidden="">
+                     <div class="row"> 
+                        <div class="input-field col s12">
+                            <input id="pname" type="text"  name="pname" required="">
+                            <label for="pname">Name</label>
+                        </div>
+                      </div>
+                     <div class="row"> 
+                        <div class="input-field col s12">
+                            <input id="age" type="number"  name="age" required="">
+                            <label for="age">Age</label>
+                        </div>
+                      </div>
+                        <div class="row"> 
                   <div class="input-field col s12">
-                      
+                    <p>
+                        <input name="group2" type="radio" id="m" value="male" />
+                    <label for="m">Male</label>
+                  </p>
+                  <p>
+                      <input name="group2" type="radio" id="f" value="female" />
+                    <label for="f">Female</label>
+                     </p>
                   </div>
                    </div>
-                      <div  class="row"  hidden="">
+                     <div class="row"> 
+                        <div class="input-field col s12">
+                            <input id="pphone" type="number"  name="pphone" required="">
+                            <label for="pphone">Phone#</label>
+                        </div>
+                      </div>
+                     <div class="row"> 
+                        <div class="input-field col s12">
+                            <input id="padress" type="text"  name="padress" required="">
+                            <label for="padress">Adress</label>
+                        </div>
+                      </div>
+                 </div>
+                 <div class="row" id="reg" hidden=""> 
                   <div class="input-field col s12">
-                      <input type="submit" value="LogIn" id="login" name="login" class="btn waves-effect waves-brown waves-ripple " >
+                      <input type="submit" value="Register" id="register" name="register" class="btn waves-effect waves-brown waves-ripple ">
                   </div>
                 </div>
              </form>
         </div>
-        </div>
          </div>
+        
         <footer class="page-footer">
           <div class="container">
             <div class="row">

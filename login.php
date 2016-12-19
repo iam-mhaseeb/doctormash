@@ -25,16 +25,18 @@
         <br>
         <div align="center">
          <div class="secondary-container" align="center">
-             <form method="POST" action="">
+             <form method="POST" action="log.php">
                    <div class="row">
                   <div class="input-field col s12">
-                    <input id="email" type="email" class="validate" name="email">
+                      <input id="email" type="email" class="validate" name="email" required="">
                     <label for="email" data-error="wrong" data-success="right">Email</label>
                   </div>
+                   </div>
                   <div class="row">
                   <div class="input-field col s12">
-                    <input id="password" type="password" class="validate" name="pass">
+                      <input id="password" type="password" class="validate" name="pass" required="">
                     <label for="password">Password</label>
+                  </div>
                   </div>
                   <div class="row">
                   <div class="input-field col s12">
@@ -42,7 +44,6 @@
                   </div>
                 </div>
              </form>
-        </div>
         </div>
          </div>
         <footer class="page-footer">
