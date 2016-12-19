@@ -36,13 +36,13 @@ and open the template in the editor.
      color: #ff8080;
    }
    /* label focus color */
-   .input-field input[type=text]:focus + label {
-     color: #ff8080 !important;;
+   .input-field input[type=text]:focus + label,.input-field input[type=email]:focus+label,.input-field input[type=password]:focus+label {
+     color: #ff8080 !important;
    }
    /* label underline focus color */
-   .input-field input[type=text]:focus {
-     border-bottom: 1px solid #ff8080 !important;;
-     box-shadow: 0 1px 0 0 #ff8080 !important;;
+     input[type=text]:focus,input[type=email]:focus,input[type=password]:focus {
+     border-bottom: 1px solid #ff8080 !important; 
+     box-shadow: 0 1px 0 0 #ff8080 !important;
    }
    /* valid color */
    .input-field input[type=text].valid {
@@ -57,6 +57,9 @@ and open the template in the editor.
    /* icon prefix focus color */
    .input-field .prefix.active {
      color: #ff8080;
+   }
+   input[type=radio]:checked{
+       color: #ff8080 !important;
    }
    .btn{
        background-color: #ff8080;
