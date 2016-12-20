@@ -20,7 +20,7 @@ if($_SESSION["account_type"]==0){//admin
     ?>
     <nav>
             <div class="nav-wrapper">
-                <a href="index.php" class="brand-logo">Doctor Mash</a>
+                <a href="home.php" class="brand-logo">Doctor Mash</a>
               <ul id="nav-mobile" class="right hide-on-med-and-down">
                    <li><a href="addadmin.php">Add Admin </a></li>
                     <li><a href="logout.php" class="btn waves-effect waves-brown waves-ripple">Logout </a></li>
@@ -86,7 +86,7 @@ if($_SESSION["account_type"]==0){//admin
                                     Age : <?php echo $row['age']; ?><br>
                                     Gender: <?php echo $row['gender']; ?><br>
                                     Phone#: <?php echo $row['phone']; ?><br>
-                                    Adress: <?php echo $row['location']; ?>
+                                    Adress: <?php echo $row['address']; ?>
                                 </p>
                             </div>
                             <div class="card-action">
@@ -109,7 +109,7 @@ else if($_SESSION["account_type"]==1){//doctor
 ?>
          <nav>
             <div class="nav-wrapper">
-                <a href="index.php" class="brand-logo">Doctor Mash</a>
+                <a href="home.php" class="brand-logo">Doctor Mash</a>
               <ul id="nav-mobile" class="right hide-on-med-and-down">
                    <li><a href="del.php">Delete Account </a></li>
                     <li><a href="logout.php" class="btn waves-effect waves-brown waves-ripple">Logout </a></li>
@@ -197,7 +197,7 @@ else if($_SESSION["account_type"] == 2) {//patient
     ?>
     <nav>
             <div class="nav-wrapper">
-                <a href="index.php" class="brand-logo">Doctor Mash</a>
+                <a href="home.php" class="brand-logo">Doctor Mash</a>
               <ul id="nav-mobile" class="right hide-on-med-and-down">
                    <li><a href="del.php">Delete Account </a></li>
                     <li><a href="logout.php" class="btn waves-effect waves-brown waves-ripple">Logout </a></li>

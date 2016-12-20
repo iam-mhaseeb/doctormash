@@ -131,6 +131,7 @@
               <div class="col l6 s12">
                 <h5 class="white-text">Doctor Mash</h5>
                 <p class="grey-text text-lighten-4">We help you to find best doctor.</p>
+                <p class="grey-text text-lighten-4">A Muhammad Haseeb's & Shariq's Production.</p>
               </div>
             </div>
           </div>
