@@ -54,49 +54,49 @@
                  <div id="doctor" hidden="">
                      <div class="row"> 
                         <div class="input-field col s12">
-                            <input id="name" type="text"  name="name" required="">
+                            <input id="name" type="text"  name="name" >
                             <label for="name">Name</label>
                         </div>
                       </div>
                      <div class="row"> 
                         <div class="input-field col s12">
-                            <input id="degree" type="text"  name="degree" required="">
+                            <input id="degree" type="text"  name="degree" >
                             <label for="degree">Degree</label>
                         </div>
                       </div>
                      <div class="row"> 
                         <div class="input-field col s12">
-                            <input id="spcial" type="text"  name="special" required="">
+                            <input id="spcial" type="text"  name="special" >
                             <label for="special">Specialization</label>
                         </div>
                       </div>
                      <div class="row"> 
                         <div class="input-field col s12">
-                            <input id="fee" type="number"  name="fee" required="">
+                            <input id="fee" type="number"  name="fee" >
                             <label for="fee">Fee</label>
                         </div>
                       </div>
                      <div class="row"> 
                         <div class="input-field col s12">
-                            <input id="timefrom" type="time"  name="timefrom" required="">
+                            <input id="timefrom" type="time"  name="timefrom" >
                             <label for="timefrom">Time From</label>
                         </div>
                       </div>
                      <div class="row"> 
                         <div class="input-field col s12">
-                            <input id="timeto" type="time"  name="timeto" required="">
+                            <input id="timeto" type="time"  name="timeto" >
                             <label for="timeto">Time To</label>
                         </div>
                       </div>
                      <div class="row"> 
                         <div class="input-field col s12">
-                            <input id="phone" type="number"  name="phone" required="">
+                            <input id="phone" type="number"  name="phone" >
                             <label for="phone">Phone#</label>
                         </div>
                       </div>
                      <div class="row"> 
                         <div class="input-field col s12">
-                            <input id="adress" type="text"  name="adress" required="">
+                            <input id="adress" type="text"  name="adress" >
                             <label for="adress">Adress</label>
                         </div>
                       </div>
@@ -104,13 +104,13 @@
                   <div id="patient1" hidden="">
                      <div class="row"> 
                         <div class="input-field col s12">
-                            <input id="pname" type="text"  name="pname" required="">
+                            <input id="pname" type="text"  name="pname" >
                             <label for="pname">Name</label>
                         </div>
                       </div>
                      <div class="row"> 
                         <div class="input-field col s12">
-                            <input id="age" type="number"  name="age" required="">
+                            <input id="age" type="number"  name="age">
                             <label for="age">Age</label>
                         </div>
                       </div>
@@ -128,13 +128,13 @@
                    </div>
                      <div class="row"> 
                         <div class="input-field col s12">
-                            <input id="pphone" type="number"  name="pphone" required="">
+                            <input id="pphone" type="number"  name="pphone"  >
                             <label for="pphone">Phone#</label>
                         </div>
                       </div>
                      <div class="row"> 
                         <div class="input-field col s12">
-                            <input id="padress" type="text"  name="padress" required="">
+                            <input id="padress" type="text"  name="padress" >
                             <label for="padress">Adress</label>
                         </div>
                       </div>

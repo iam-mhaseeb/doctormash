@@ -17,9 +17,95 @@
 <?php
 session_start();
 if($_SESSION["account_type"]==0){//admin
-?>
-<?php
-}else if($_SESSION["account_type"]==1){//doctor
+    ?>
+    <nav>
+            <div class="nav-wrapper">
+                <a href="index.php" class="brand-logo">Doctor Mash</a>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                   <li><a href="addadmin.php">Add Admin </a></li>
+                    <li><a href="logout.php" class="btn waves-effect waves-brown waves-ripple">Logout </a></li>
+              </ul>
+            </div>
+          </nav>
+            <br>
+            <div align="center">
+                <div class="center-align">
+                        <h3>Showing All Doctors</h3>
+            <table>
+            <?php
+            $sql = "select * from doctors";
+            $result = mysql_query($sql) or die("Table Not Found".mysql_error());
+            while ($row=mysql_fetch_array($result)) {
+             ?>
+                    <tr>
+                    <div class="row">
+                        <div class="col s12 m6">
+                          <div class="card blue-grey darken-1">
+                            <div class="card-content white-text">
+                                <span class="card-title"><?php echo $row['name']; ?></span>
+                                <p>
+                                    Qualifcation : <?php echo $row['qualification']; ?><br>
+                                    Specialization: <?php echo $row['specialization']; ?><br>
+                                    Fee : <?php echo $row['fee']; ?><br>
+                                    Time From : <?php echo $row['timefrom']; ?><br>
+                                    Time To: <?php echo $row['timeto']; ?><br>
+                                    Phone#: <?php echo $row['phone']; ?><br>
+                                    Adress: <?php echo $row['location']; ?>
+                                </p>
+                            </div>
+                            <div class="card-action">
+                              <a href="#">Delete This Doctor</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                        </tr>
+            <?php
+            }
+            ?>
+            </table>
+            </div>
+            </div>
+            <br>
+            <div align="center">
+                 <div class="center-align">
+                        <h3>Showing All Patients</h3>
+            <table>
+            <?php
+            $sql = "select * from patients";
+            $result = mysql_query($sql) or die("Table Not Found".mysql_error());
+            while ($row=mysql_fetch_array($result)) {
+             ?>
+                    <tr>
+                    <div class="row">
+                        <div class="col s12 m6">
+                          <div class="card blue-grey darken-1">
+                            <div class="card-content white-text">
+                                <span class="card-title"><?php echo $row['name']; ?></span>
+                                <p>
+                                    Age : <?php echo $row['age']; ?><br>
+                                    Gender: <?php echo $row['gender']; ?><br>
+                                    Phone#: <?php echo $row['phone']; ?><br>
+                                    Adress: <?php echo $row['location']; ?>
+                                </p>
+                            </div>
+                            <div class="card-action">
+                              <a href="#">Delete This Patient</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                        </tr>
+            <?php
+            }
+            ?>
+            </table>
+            </div>
+            </div>
+           
+            <?php
+}
+else if($_SESSION["account_type"]==1){//doctor
 ?>
          <nav>
             <div class="nav-wrapper">
@@ -32,11 +118,13 @@ if($_SESSION["account_type"]==0){//admin
           </nav>
         <br>
         <div class="center-align">
+             <div id="upd1"> 
             <?php
             $id = $_SESSION["uid"];
             $sql = "select * from doctors where id = '$id' ";
             $result = mysql_query($sql) or die("Table Not Found".mysql_error());
             while ($row=mysql_fetch_array($result)) {
+
 		echo "<form method=post>";
                                         echo "Name : " . $row['name'];
                                         echo '<br>';
@@ -56,16 +144,21 @@ if($_SESSION["account_type"]==0){//admin
                                               echo '<br>';
                                               echo '  <input type="submit" value="Update" id="update" name="update" class="btn waves-effect waves-brown waves-ripple ">';
 		echo "</form>";
+                ?>
+            </div>
+            <?php
 	}
                 if(isset($_POST['update'])){
-                    echo '<br>';
-                    echo '<hr>';
+                    ?>
+                    
+                    <?php
                     $sql = "select * from doctors where id = '$id' ";
                     $result = mysql_query($sql) or die("Table Not Found".mysql_error());
                    while ($row=mysql_fetch_array($result)) {
 		echo "<form method=post action=update.php>";
                 ?>
-            <div align="center" id="update-contain">
+            <div align="center">
+                <div class="center-align" style="width:50%">
                             <input id="name" type="text"  name="name" value="<?php echo $row['name'];?>">
                             <label for="name">Name</label>
                             <input id="degree" type="text"  name="degree" value="<?php echo $row['qualification']; ?>">
@@ -82,10 +175,16 @@ if($_SESSION["account_type"]==0){//admin
                             <label for="phone">Phone#</label>
                             <input id="adress" type="text"  name="adress" value="<?php echo $row['location']; ?>"/>
                             <label for="adress">Adress</label>
-        </div>
+                
+            </div>
+            </div>
+                                
                  <?php
                                               echo '  <input type="submit" value="Update" id="submit" name="submit" class="btn waves-effect waves-brown waves-ripple ">';
 		echo "</form>";
+                ?>
+                            <?php
+               
                 echo '<br>';
                 echo '<br>';
 	}
@@ -95,7 +194,65 @@ if($_SESSION["account_type"]==0){//admin
 <?php
 }
 else if($_SESSION["account_type"] == 2) {//patient
-    
+    ?>
+    <nav>
+            <div class="nav-wrapper">
+                <a href="index.php" class="brand-logo">Doctor Mash</a>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                   <li><a href="del.php">Delete Account </a></li>
+                    <li><a href="logout.php" class="btn waves-effect waves-brown waves-ripple">Logout </a></li>
+              </ul>
+            </div>
+          </nav>
+        <br>
+        <form method="POST">
+        <div align="center">
+        <div class="center-align" style="width:50%">
+            <label for="search">Search Here</label>
+            <br>
+            <input placeholder="Enter specialist you need" id="searchbar" name="searchbar" type="text">
+             <input type="submit" value="Search" id="search" name="search" class="btn waves-effect waves-brown waves-ripple ">
+        </div>
+        </div>
+        </form>
+      <?php
+      
+      if(isset($_POST['search'])){
+          $search = $_POST['searchbar'];
+           $sql = "select * from doctors where specialization like '%$search%' ";
+            $result = mysql_query($sql) or die("Table Not Found".mysql_error());
+            ?>
+        <table>
+            
+        <?php
+            while ($row=mysql_fetch_array($result)) {
+             ?>
+                    <tr>
+                    <div class="row">
+                        <div class="col s12 m6">
+                          <div class="card blue-grey darken-1">
+                            <div class="card-content white-text">
+                                <span class="card-title"><?php echo $row['name']; ?></span>
+                                <p>
+                                    Qualifcation : <?php echo $row['qualification']; ?><br>
+                                    Specialization: <?php echo $row['specialization']; ?><br>
+                                    Fee : <?php echo $row['fee']; ?><br>
+                                    Time From : <?php echo $row['timefrom']; ?><br>
+                                    Time To: <?php echo $row['timeto']; ?><br>
+                                    Phone#: <?php echo $row['phone']; ?><br>
+                                    Adress: <?php echo $row['location']; ?>
+                                </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                        </tr>
+            <?php
+            }
+            ?>
+    </table>
+                        <?php
+      }
 }
 else{
     header('Location: login.php ');
