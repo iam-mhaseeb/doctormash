@@ -1,5 +1,6 @@
 <?php 
 require 'conn.php'; 
+include("simple_html_dom.php");
 ?>
 <!DOCTYPE html>
   <html>
@@ -262,6 +263,28 @@ else if($_SESSION["account_type"] == 2) {//patient
     </table>
       
                         <?php
+                          $url = "https://www.google.com/search?q='$search'+doctors+in+lahore";                                                          
+                          $html = file_get_html($url);
+                          $linkObjs = $html->find('h3.r a');
+
+                          foreach ($linkObjs as $linkObj) {
+
+                          $title = trim($linkObj->plaintext);
+                          $link = trim($linkObj->href);
+
+                          if (!preg_match('/^https?/', $link) && preg_match('/q=(.+)&amp;sa=/U', $link, $matches) && preg_match('/^https?/', $matches[1])) {
+                          $link = $matches[1];
+                          } else if (!preg_match('/^https?/', $link)) { // skip if it is not a valid link
+                          continue;
+                          }
+
+                          echo '<span>' . $link . '</span><br/>';
+                          // Create a DOM object from a URL
+                          $html1 = file_get_html($link);
+                          //do javascript
+
+                          }
+
       }
 }
 else{
