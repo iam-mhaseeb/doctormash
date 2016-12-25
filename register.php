@@ -78,14 +78,16 @@
                       </div>
                      <div class="row"> 
                         <div class="input-field col s12">
+                            <label for="timefrom">Time From</label><br>
                             <input id="timefrom" type="time"  name="timefrom" >
-                            <label for="timefrom">Time From</label>
+                           
                         </div>
                       </div>
                      <div class="row"> 
                         <div class="input-field col s12">
+                            <label for="timeto">Time To</label><br>
                             <input id="timeto" type="time"  name="timeto" >
-                            <label for="timeto">Time To</label>
+                            
                         </div>
                       </div>
                      <div class="row"> 
@@ -144,6 +146,8 @@
                       <input type="submit" value="Register" id="register" name="register" class="btn waves-effect waves-brown waves-ripple ">
                   </div>
                 </div>
+                 <br>
+                 <br>
              </form>
         </div>
          </div>

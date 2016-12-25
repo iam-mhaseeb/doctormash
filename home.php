@@ -1,4 +1,6 @@
-<?php require 'conn.php'; ?>
+<?php 
+require 'conn.php'; 
+?>
 <!DOCTYPE html>
   <html>
     <head>
@@ -16,6 +18,7 @@
     <body>
 <?php
 session_start();
+if(!isset($_SESSION["account_type"])){ header('Location: login.php ');}
 if($_SESSION["account_type"]==0){//admin
     ?>
     <nav>
@@ -37,11 +40,13 @@ if($_SESSION["account_type"]==0){//admin
             $result = mysql_query($sql) or die("Table Not Found".mysql_error());
             while ($row=mysql_fetch_array($result)) {
              ?>
+                    <form action="" method="POST">
                     <tr>
                     <div class="row">
                         <div class="col s12 m6">
                           <div class="card blue-grey darken-1">
                             <div class="card-content white-text">
+                                <input type="text" name="did" hidden="" value="<?php echo $row['id']; ?>">
                                 <span class="card-title"><?php echo $row['name']; ?></span>
                                 <p>
                                     Qualifcation : <?php echo $row['qualification']; ?><br>
@@ -54,12 +59,13 @@ if($_SESSION["account_type"]==0){//admin
                                 </p>
                             </div>
                             <div class="card-action">
-                              <a href="#">Delete This Doctor</a>
+                              <input type="submit" name="deld" value="Delete This Doctor" class="btn waves-effect waves-brown waves-ripple">
                             </div>
                           </div>
                         </div>
                       </div>
                         </tr>
+                        </form>
             <?php
             }
             ?>
@@ -76,11 +82,13 @@ if($_SESSION["account_type"]==0){//admin
             $result = mysql_query($sql) or die("Table Not Found".mysql_error());
             while ($row=mysql_fetch_array($result)) {
              ?>
+                    <form method="POST">
                     <tr>
                     <div class="row">
                         <div class="col s12 m6">
                           <div class="card blue-grey darken-1">
                             <div class="card-content white-text">
+                                <input type="text" name="dip" hidden="" value="<?php echo $row['id']; ?>">
                                 <span class="card-title"><?php echo $row['name']; ?></span>
                                 <p>
                                     Age : <?php echo $row['age']; ?><br>
@@ -90,12 +98,13 @@ if($_SESSION["account_type"]==0){//admin
                                 </p>
                             </div>
                             <div class="card-action">
-                              <a href="#">Delete This Patient</a>
+                               <input type="submit" name="delp" value="Delete This Patient" class="btn waves-effect waves-brown waves-ripple">
                             </div>
                           </div>
                         </div>
                       </div>
                         </tr>
+                        </form>
             <?php
             }
             ?>
@@ -210,7 +219,7 @@ else if($_SESSION["account_type"] == 2) {//patient
         <div class="center-align" style="width:50%">
             <label for="search">Search Here</label>
             <br>
-            <input placeholder="Enter specialist you need" id="searchbar" name="searchbar" type="text">
+            <input placeholder="Enter specialist you need" id="searchbar" name="searchbar" type="text">        
              <input type="submit" value="Search" id="search" name="search" class="btn waves-effect waves-brown waves-ripple ">
         </div>
         </div>
@@ -251,6 +260,7 @@ else if($_SESSION["account_type"] == 2) {//patient
             }
             ?>
     </table>
+      
                         <?php
       }
 }
@@ -260,3 +270,19 @@ else{
 ?>
     </body>
   </html>
+
+
+<?php
+if(isset($_POST['deld']) or isset($_POST['delp'])){
+  $id=null;
+  if(isset($_POST['deld'])){
+    $id = $_POST['did'];
+  }
+  else if(isset($_POST['delp'])){
+    $id = $_POST['dip'];
+  }
+  $sql = "delete from login where id = '$id' ";
+  mysql_query($sql) or die("Table Not Found".mysql_error());
+   header('Location: home.php ');
+ }
+?>
