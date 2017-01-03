@@ -263,27 +263,46 @@ else if($_SESSION["account_type"] == 2) {//patient
     </table>
       
                         <?php
-                          $url = "https://www.google.com/search?q='$search'+doctors+in+lahore";                                                          
+                         // $url = "https://www.google.com/search?q='$search'+doctors+in+lahore";      
+                          $url = "http://findadoctor.com.pk/search/lahore/'$search'" ;                                                   
                           $html = file_get_html($url);
-                          $linkObjs = $html->find('h3.r a');
-
-                          foreach ($linkObjs as $linkObj) {
-
-                          $title = trim($linkObj->plaintext);
-                          $link = trim($linkObj->href);
-
-                          if (!preg_match('/^https?/', $link) && preg_match('/q=(.+)&amp;sa=/U', $link, $matches) && preg_match('/^https?/', $matches[1])) {
-                          $link = $matches[1];
-                          } else if (!preg_match('/^https?/', $link)) { // skip if it is not a valid link
-                          continue;
+                          $articles = array();
+                          foreach($html->find('div.divRoot') as $element) {
+                            if(isset($element->find('span.lblProfileName', 0)->plaintext))
+                              $item['name'] = $element->find('span.lblProfileName', 0)->plaintext;
+                            else
+                              $item['name'] = null;
+                            if(isset($element->find('span.txtTagLine', 0)->plaintext))
+                              $item['education'] = $element->find('span.txtTagLine', 0)->plaintext;
+                            else
+                              $item['education'] = null;
+                            if(isset($element->find('span.txtSpeciality', 0)->plaintext))
+                             $item['spec'] = $element->find('span.txtSpeciality', 0)->plaintext;
+                            else
+                              $item['spec'] = null;
+                            if(isset($element->find('div#ctl00_cph_gv_ctl02_uc_divParct',0)->plaintext)){
+                              echo $element->find('div#ctl00_cph_gv_ctl02_uc_divParct',0)->plaintext;
+                              echo "<br>";
+                              //$item['address'] = $element->find('div#ctl00_cph_gv_ctl03_uc_divParct.usMemberSummary_Box', 0)->plaintext;
+                            }
+                            else
+                              $item['address'] = null;
+                            
+                           
+                            
+                            $articles[] = $item;
                           }
-
-                          echo '<span>' . $link . '</span><br/>';
-                          // Create a DOM object from a URL
-                          $html1 = file_get_html($link);
-                          //do javascript
-
-                          }
+                         /* foreach ($articles as $doctor) {
+                            echo $doctor['name'];
+                            echo "<br>";
+                            echo $doctor['education'];
+                            echo "<br>";
+                            echo $doctor['spec'];
+                            echo "<br>";
+                            echo $doctor['address'];
+                            echo "<br>";
+                            # code...
+                          }*/
 
       }
 }
