@@ -220,8 +220,9 @@ else if($_SESSION["account_type"] == 2) {//patient
         <div class="center-align" style="width:50%">
             <label for="search">Search Here</label>
             <br>
-            <input placeholder="Enter specialist you need" id="searchbar" name="searchbar" type="text">        
-             <input type="submit" value="Search" id="search" name="search" class="btn waves-effect waves-brown waves-ripple ">
+             <input placeholder="Enter specialist you need" id="searchbar" name="searchbar" type="text" required="">
+            <input placeholder="Enter city" id="citysearchbar" name="citysearchbar" type="text" required="">
+               <input type="submit" value="Search" id="search" name="search" class="btn waves-effect waves-brown waves-ripple ">
         </div>
         </div>
         </form>
@@ -229,6 +230,7 @@ else if($_SESSION["account_type"] == 2) {//patient
       
       if(isset($_POST['search'])){
           $search = $_POST['searchbar'];
+          $citysearch = $_POST['citysearchbar'];
            $sql = "select * from doctors where specialization like '%$search%' ";
             $result = mysql_query($sql) or die("Table Not Found".mysql_error());
             ?>
@@ -264,7 +266,7 @@ else if($_SESSION["account_type"] == 2) {//patient
       
                         <?php
                          // $url = "https://www.google.com/search?q='$search'+doctors+in+lahore"; 
-                         $url = "http://findadoctor.com.pk/search/lahore/'$search'" ;                                                   
+                         $url = "http://findadoctor.com.pk/search/'$citysearch'/'$search'" ;                                                   
                           $html = file_get_html($url);
                           $articles = array();
                           foreach($html->find('div.divRoot') as $element) {
@@ -288,17 +290,28 @@ else if($_SESSION["account_type"] == 2) {//patient
                             
                             $articles[] = $item;
                           }
-                          foreach ($articles as $doctor) {
-                            echo $doctor['name'];
-                            echo "<br>";
-                            echo $doctor['education'];
-                            echo "<br>";
-                            echo $doctor['spec'];
-                            echo "<br>";
-                            echo $doctor['address'];
-                            echo "<br>";
-                            # code...
-                          }
+                           foreach ($articles as $doctor) {
+                          ?>
+                          <table>
+                          <tr>
+                          <div class="row">
+                          <div class="col s12 m6">
+                          <div class="card blue-grey darken-1">
+                            <div class="card-content white-text">
+                                <span class="card-title"><?php echo $doctor['name']; ?></span>
+                                <p>
+                                    Qualifcation : <?php echo $doctor['education']; ?><br>
+                                    Specialization: <?php echo $doctor['spec']; ?><br>
+                                    Adress: <?php  echo $doctor['address']; ?>
+                                </p>
+                            </div>
+                          </div>
+                          </div>
+                          </div>
+                          </tr>
+                          </table>
+                          <?php
+                         }
 
       }
 }
