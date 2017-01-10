@@ -263,8 +263,8 @@ else if($_SESSION["account_type"] == 2) {//patient
     </table>
       
                         <?php
-                         // $url = "https://www.google.com/search?q='$search'+doctors+in+lahore";      
-                          $url = "http://findadoctor.com.pk/search/lahore/'$search'" ;                                                   
+                         // $url = "https://www.google.com/search?q='$search'+doctors+in+lahore"; 
+                         $url = "http://findadoctor.com.pk/search/lahore/'$search'" ;                                                   
                           $html = file_get_html($url);
                           $articles = array();
                           foreach($html->find('div.divRoot') as $element) {
@@ -281,18 +281,14 @@ else if($_SESSION["account_type"] == 2) {//patient
                             else
                               $item['spec'] = null;
                             if(isset($element->find('div#ctl00_cph_gv_ctl02_uc_divParct',0)->plaintext)){
-                              echo $element->find('div#ctl00_cph_gv_ctl02_uc_divParct',0)->plaintext;
-                              echo "<br>";
-                              //$item['address'] = $element->find('div#ctl00_cph_gv_ctl03_uc_divParct.usMemberSummary_Box', 0)->plaintext;
+                              $item['address'] = $element->find('div#ctl00_cph_gv_ctl02_uc_divParct', 0)->plaintext;
                             }
                             else
                               $item['address'] = null;
                             
-                           
-                            
                             $articles[] = $item;
                           }
-                         /* foreach ($articles as $doctor) {
+                          foreach ($articles as $doctor) {
                             echo $doctor['name'];
                             echo "<br>";
                             echo $doctor['education'];
@@ -302,7 +298,7 @@ else if($_SESSION["account_type"] == 2) {//patient
                             echo $doctor['address'];
                             echo "<br>";
                             # code...
-                          }*/
+                          }
 
       }
 }
