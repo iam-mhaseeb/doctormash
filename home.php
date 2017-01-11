@@ -152,6 +152,8 @@ else if($_SESSION["account_type"]==1){//doctor
                                              echo '<br>';
                                               echo "Adress : " . $row['location'];
                                               echo '<br>';
+                                              echo "City : " . $row['city'];
+                                              echo '<br>';
                                               echo '  <input type="submit" value="Update" id="update" name="update" class="btn waves-effect waves-brown waves-ripple ">';
 		echo "</form>";
                 ?>
@@ -185,6 +187,8 @@ else if($_SESSION["account_type"]==1){//doctor
                             <label for="phone">Phone#</label>
                             <input id="adress" type="text"  name="adress" value="<?php echo $row['location']; ?>"/>
                             <label for="adress">Adress</label>
+                             <input id="city" type="text"  name="city" value="<?php echo $row['city']; ?>"/>
+                            <label for="city">city</label>
                 
             </div>
             </div>
@@ -231,7 +235,7 @@ else if($_SESSION["account_type"] == 2) {//patient
       if(isset($_POST['search'])){
           $search = $_POST['searchbar'];
           $citysearch = $_POST['citysearchbar'];
-           $sql = "select * from doctors where specialization like '%$search%' ";
+           $sql = "select * from doctors where specialization like '%$search%' and city like '%$citysearch%'  ";
             $result = mysql_query($sql) or die("Table Not Found".mysql_error());
             ?>
         <table>
@@ -252,7 +256,8 @@ else if($_SESSION["account_type"] == 2) {//patient
                                     Time From : <?php echo $row['timefrom']; ?><br>
                                     Time To: <?php echo $row['timeto']; ?><br>
                                     Phone#: <?php echo $row['phone']; ?><br>
-                                    Adress: <?php echo $row['location']; ?>
+                                    Adress: <?php echo $row['location']; ?><br>
+                                    City: <?php echo $row['city']; ?>
                                 </p>
                             </div>
                           </div>

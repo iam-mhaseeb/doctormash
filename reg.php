@@ -12,10 +12,11 @@ if($isdoc=="doc"){
     $timeto = isset($_POST['timeto']) ?  $_POST['timeto'] : '';
     $phone = isset($_POST['phone']) ?  $_POST['phone'] : '';
     $adress = isset($_POST['adress']) ?  $_POST['adress'] : '';
+    $city = isset($_POST['city']) ?  $_POST['city'] : '';
     $sql = "insert into login (email,password,account_check) values('$email','$pass',1)";
     mysql_query($sql) or die("Table Not Found".mysql_error());
     $last_id = mysql_insert_id();
-    $sql = "insert into doctors values('$last_id','$name','$degree','$special','$fee','$timefrom','$timeto','$phone','$adress')";
+    $sql = "insert into doctors values('$last_id','$name','$degree','$special','$fee','$timefrom','$timeto','$phone','$adress','$city')";
     mysql_query($sql) or die("Table Not Found".mysql_error());
     header('Location: login.php ');
 }else if($isdoc=="pat"){

@@ -102,6 +102,12 @@
                             <label for="adress">Adress</label>
                         </div>
                       </div>
+                      <div class="row"> 
+                        <div class="input-field col s12">
+                            <input id="city" type="text"  name="city" >
+                            <label for="city">City</label>
+                        </div>
+                      </div>
                  </div>
                   <div id="patient1" hidden="">
                      <div class="row"> 

@@ -8,6 +8,7 @@ require 'conn.php';
     $timeto = isset($_POST['timeto']) ?  $_POST['timeto'] : '';
     $phone = isset($_POST['phone']) ?  $_POST['phone'] : '';
     $adress = isset($_POST['adress']) ?  $_POST['adress'] : '';
-    $sql = "update doctors set name='$name',qualification='$degree',specialization='$special',fee='$fee',timefrom='$timefrom',timeto='$timeto',phone='$phone',location='$adress' ";
+    $city = isset($_POST['city']) ?  $_POST['city'] : '';
+    $sql = "update doctors set name='$name',qualification='$degree',specialization='$special',fee='$fee',timefrom='$timefrom',timeto='$timeto',phone='$phone',location='$adress',city = '$city' ";
     mysql_query($sql) or die("Table Not Found".mysql_error());
     header('Location: home.php ');
