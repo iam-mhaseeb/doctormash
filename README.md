@@ -13,7 +13,7 @@ Here the columns that you need to add in table.
 <br>password => Store password in md5
 <br>account_check => A variable to distingusish between doctor account, patient account or admin account(All have different access in system).
 <br>
-If you want to know more in depth don't hesitate to write me a email at <haseeb.emailbox.com>
+If you want to know more in depth don't hesitate to write me a email at [mailto](mailto:haseeb.emailbox@gmail.com)
 
 ## Terms of Use
 Project is open source & ready to use for your next project, but you must credit developer.
